@@ -1,3 +1,5 @@
+# created pod 
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -12,8 +14,21 @@ spec:
     image: "vimal13/apache-webserver-php"
 
 ----------------------------------------------------------------------------
+# created pvc
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysqlpvc1
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
 
-created pod with pvc
+-----------------------------------------------------------------------------------------
+
+#created pod with pvc
 
 apiVersion: v1
 kind: Pod
