@@ -1,0 +1,39 @@
+provider "kubernetes" {
+  config_context_cluster   = "minikube"
+}
+
+
+resource "kubernetes_replication_controller" "myrc1" {
+  metadata {
+    name = "rcweb1"
+  }
+
+  spec {
+    replicas = 3
+    selector = {
+      env="dev",
+      dc="IN",
+      app="webserver"
+    }
+    template {
+      metadata {
+        labels = {
+	      env="dev",
+	      dc="IN",
+	      app="webserver"
+
+        }
+        annotations = {
+          "key1" = "value1"
+        }
+      }
+
+      spec {
+        container {
+          image = "vimal13/apache-webserver-php"
+          name  = "mycon1"
+		}
+	}
+}
+}
+}
