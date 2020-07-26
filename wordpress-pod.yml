@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: wprs1
+  name: wprs9
 
 spec:
   replicas: 1
